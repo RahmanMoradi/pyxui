@@ -2,7 +2,8 @@ from pydantic import BaseModel, Field
 
 class Model(BaseModel):
     class Config:
-            allow_population_by_field_name = True
+        allow_population_by_field_name = True
+        arbitrary_types_allowed = True
 
 class Client(Model):
     id: str
