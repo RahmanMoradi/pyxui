@@ -8,7 +8,7 @@ with open("README.md", "r") as f:
 setup(
     name="pyxui",
     version=VERSION,
-    author="Staliox",
+    author="Staliox, RahmanMoradi",
     description="An application with python that allows you to modify your xui panel",
     long_description=readme,
     long_description_content_type="text/markdown",
@@ -20,7 +20,7 @@ setup(
         "xui panel"
     ],
     packages=find_packages(),
-    install_requires=["requests"],
+    install_requires=["requests", "pydantic~=2.10.5"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
