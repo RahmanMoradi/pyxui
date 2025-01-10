@@ -1,9 +1,8 @@
 from pydantic import BaseModel, Field
-
+from typing import List
 class Model(BaseModel):
     class Config:
         allow_population_by_field_name = True
-        arbitrary_types_allowed = True
 
 class Client(Model):
     id: str
@@ -29,7 +28,7 @@ class ClientStats(Model):
     reset: int
    
 class Settings(Model):  
-    clients: list[Client]
+    clients: List[Client]
     description: str
     fallbacks: list
     
@@ -54,4 +53,4 @@ class Inbound(Model):
 class InboundResponse(Model):
     success: bool
     msg: str
-    obj: list[Inbound]
+    obj: List[Inbound]
