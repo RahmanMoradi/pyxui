@@ -28,7 +28,7 @@ class ClientStats(Model):
     total: int
     reset: int
    
-class Settings:  
+class Settings(Model):  
     clients: list[Client]
     description: str
     fallbacks: list
