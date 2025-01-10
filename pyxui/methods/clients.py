@@ -2,7 +2,7 @@ import json
 from typing import Union
 
 import pyxui
-from pyxui import errors
+from pyxui import errors, models
 
 class Clients:
     def get_client(
@@ -10,7 +10,7 @@ class Clients:
         inbound_id: int,
         email: str = False,
         uuid: str = False
-    ) -> Union[dict, errors.NotFound]:
+    ) -> Union[models.Client, errors.NotFound]:
         """Get client from the existing inbound.
 
         Parameters:
@@ -24,7 +24,7 @@ class Clients:
                UUID of the client
             
         Returns:
-            `~Dict`: On success, a dict is returned or else 404 an error will be raised
+            `Client`: On success, a Client model instance is returned or else 404 an error will be raised
         """
         
         get_inbounds = self.get_inbounds()
@@ -42,7 +42,7 @@ class Clients:
                 if client['email'] != email and client['id'] != uuid:
                     continue
                 
-                return client
+                return models.Client(**client)
 
         raise errors.NotFound()
 
